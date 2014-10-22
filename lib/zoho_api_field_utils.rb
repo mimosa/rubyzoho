@@ -6,7 +6,9 @@ module ZohoApiFieldUtils
   def add_field(row, field, value)
     puts field
     r = (REXML::Element.new 'FL')
-    if field == 'Customer Id'
+    if field == 'Product Subscription Id'
+      field = 'Product Subscription_ID'
+    elsif field == 'Customer Id'
       field = 'Customer_ID'
     elsif field == 'Custom Module1 Name'
       field = 'CustomModule1 Name'
