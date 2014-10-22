@@ -5,7 +5,7 @@ module ZohoApiFieldUtils
 
   def add_field(row, field, value)
     r = (REXML::Element.new 'FL')
-    if field !== 'Custom_Module1_name'
+    if field != 'Custom_Module1_name'
       adjust_tag_case(field)
     else
       field = 'CustomModule1_name'
