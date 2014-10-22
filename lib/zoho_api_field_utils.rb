@@ -17,7 +17,7 @@ module ZohoApiFieldUtils
     return tag if tag == 'id'
     return tag.upcase if tag.downcase.rindex('id')
     u_tags = %w[SEMODULE]
-    return tag.upcase if u_tags.index(tag.upcase)
+    return tag.titleize if u_tags.index(tag.titleize)
     tag
   end
 
