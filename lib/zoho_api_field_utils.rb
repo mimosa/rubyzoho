@@ -12,7 +12,7 @@ module ZohoApiFieldUtils
     end
     r.attributes['val'] = adjust_tag_case(field)
     r.add_text("#{value}")
-    puts rdd
+    puts r
     row.elements << r
     row
   end
