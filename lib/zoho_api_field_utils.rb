@@ -10,8 +10,8 @@ module ZohoApiFieldUtils
       adjust_tag_case(field)
     else
       field = 'CustomModule1 Name'
-      r.attributes['val'] = field
     end
+    r.attributes['val'] = field
     r.add_text("#{value}")
     puts r
     row.elements << r
