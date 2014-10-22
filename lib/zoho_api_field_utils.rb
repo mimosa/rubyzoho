@@ -8,7 +8,7 @@ module ZohoApiFieldUtils
     adjust_tag_case(field)
     r.attributes['val'] = adjust_tag_case(field)
     r.add_text("#{value}")
-    logger.debug r
+    puts r
     row.elements << r
     row
   end
