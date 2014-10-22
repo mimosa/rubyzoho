@@ -8,12 +8,10 @@ module ZohoApiFieldUtils
     r = (REXML::Element.new 'FL')
     if field == 'customer_id'
       field = 'Customer_ID'
-    else if
-      if field != 'Custom Module1 Name'
+    else if field != 'Custom Module1 Name'
         adjust_tag_case(field)
-      else
+    else 
         field = 'CustomModule1 Name'
-      end
     end
     r.attributes['val'] = field
     r.add_text("#{value}")
