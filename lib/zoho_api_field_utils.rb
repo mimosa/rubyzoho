@@ -8,7 +8,7 @@ module ZohoApiFieldUtils
     r = (REXML::Element.new 'FL')
     if field == 'Customer Id'
       field = 'Customer_ID'
-    elseif field == 'Custom Module1 Name'
+    else if field == 'Custom Module1 Name'
       field = 'CustomModule1 Name'
     else 
       adjust_tag_case(field)
