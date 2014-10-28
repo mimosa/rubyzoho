@@ -1,3 +1,4 @@
+require 'active_support/core_ext/hash'
 require 'active_model'
 require 'crud_methods'
 require 'zoho_crm_utils'
@@ -67,10 +68,28 @@ class RubyZoho::Crm
       c = Class.new(self) do
         include RubyZoho
         include ActiveModel
+        include ActiveModel::Serializers::JSON
         extend ActiveModel::Naming
 
         attr_reader :fields
         @module_name = module_name
+
+        def attributes=(hash)
+          ignored_attrs(hash).each do |key, value|
+            send("#{key}=", value)
+          end
+        end
+
+        def attributes
+          ignored_attrs(instance_values)
+        end
+
+        private
+
+          def ignored_attrs(hash)
+            hash.except('module_name','fields')
+          end
+
       end
       const_set(klass_name, c)
     end
